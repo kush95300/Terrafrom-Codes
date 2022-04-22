@@ -29,7 +29,7 @@ resource "google_compute_instance" "default" {
     enable-oslogin = "true"
   }
 
-  #metadata_startup_script = "echo hi > /test.txt"
+  metadata_startup_script =  var.script_path== "" ? "":("${path.module}/${var.script_path}")
 
 #   service_account {
 #     # Google recommends custom service accounts that have cloud-platform scope and permissions granted via IAM Roles.

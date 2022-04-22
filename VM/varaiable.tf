@@ -4,7 +4,7 @@ variable "project_id" {
 }
 
 variable "region" {
-    default = "us-central1"
+    default = "asia-south1"
     description = "The Google Cloud region to use"
 }
 
@@ -29,7 +29,7 @@ variable "subnet" {
     description = "The name of the subnet to create"
 }
 
-variable "network-tags" {
+variable "network_tags" {
     default = ["kaushal-ssh-icmp","kaushal-flask"]
     description = "The tags to apply to the network"
 }
@@ -49,3 +49,9 @@ variable "machine_type" {
     default = "e2-micro"
     description = "The name of the machine type to use"
 }
+
+variable "script_path" {
+    default = "scripts/startup.sh"
+    description = "The startup script path to run ( with reference to module path)"
+}
+
