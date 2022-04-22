@@ -41,7 +41,7 @@ resource "google_compute_router_nat" "vpc_router_nat" {
 
 # Firewall rules
 resource "google_compute_firewall" "default" {
-  name    = "test-firewall"
+  name    = "kaushal-firewall-terraform"
   network = google_compute_network.vpc_network.id
 
   allow {
