@@ -9,7 +9,7 @@ variable "region" {
 }
 
 variable "node_pool_region" {
-    default = ["asia-south1", "asia-south2"]
+    default = ["asia-south1"] #, "asia-south2"]
     description = "The Google Cloud region to use for the node pool"  
 }
 
@@ -17,6 +17,11 @@ variable "node_zones" {
     default = ["asia-south1-a"]
     description = "The Google Cloud regions to use for nodes"
   
+}
+
+variable "node_count" {
+    default = 2
+    description = "The number of nodes to create in each node pool"
 }
 
 # labelling

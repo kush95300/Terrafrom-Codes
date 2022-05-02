@@ -26,7 +26,7 @@ resource "google_container_node_pool" "primary_preemptible_nodes" {
   name       = "${var.cluster_name}-node-pool-${count.index}"
   location   = element(var.node_pool_region, count.index)
   cluster    = element(google_container_cluster.primary.*.id , count.index)
-  node_count = 1
+  node_count = var.node_count
 
   node_locations = var.node_zones
 
