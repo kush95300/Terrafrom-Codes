@@ -1,9 +1,32 @@
+locals {
+  network_tags = concat(var.network_tags, ["kush-firewall-rule-tf-vm"])
+}
+
+output "test" {
+  value = local.network_tags
+  
+}
+# Custom-firewall-rule-for-GCP-VM
+resource "google_compute_firewall" "firewall" {
+  name = var.firewall_name
+  network = var.vpc_name
+  source_ranges = var.source_ranges
+  allow{
+      protocol = "tcp"
+      ports = var.allow_tcp_ports
+    }
+  
+  target_tags = ["kush-firewall-rule-tf-vm"]
+}
+
+
+# instance
 resource "google_compute_instance" "default" {
   name         = var.instance_name
   machine_type = var.machine_type
   zone         = "${var.region }-a"
 
-  tags = var.network_tags
+  tags = local.network_tags
   labels = var.labels
 
 

@@ -36,7 +36,7 @@ variable "network_tags" {
 
 # Compute
 variable "instance_name" {
-    default = "kaushal-vm-terraform"
+    default = "kaushal-jenkins-vm-terraform"
     description = "The name of the instance to create"
 }
 
@@ -55,3 +55,18 @@ variable "script_path" {
     description = "The startup script path to run ( with reference to module path)"
 }
 
+# firewall
+variable "firewall_name" {
+    default = "kaushal-firewall-tf-custom"
+    description = "The name of the firewall to create"
+}
+
+variable "source_ranges" {
+    default = ["157.38.3.250/32","35.235.240.0/20"]
+    description = "The source ranges to apply to the firewall"
+}
+
+variable "allow_tcp_ports" {
+    default = ["22"]
+    description = "The TCP ports to apply to the firewall"
+}
