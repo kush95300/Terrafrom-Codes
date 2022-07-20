@@ -20,7 +20,7 @@ variable "node_zones" {
 }
 
 variable "node_count" {
-    default = 2
+    default = 1
     description = "The number of nodes to create in each node pool"
 }
 
